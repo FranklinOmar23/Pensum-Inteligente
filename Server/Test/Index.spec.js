@@ -6,5 +6,5 @@ describe("GET /ping", () => {
       const response = await request(app).get("/ping").send();
       expect(response.statusCode).toBe(200);
     });
-
+    
 })
