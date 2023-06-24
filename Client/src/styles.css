@@ -10849,8 +10849,19 @@ body {
 .text-white-75 {
   color: #176B87 !important;
 }
+.btn-xl:hover {
 
+  color: #0c4128;
+  padding: 1.25rem 2.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+}
 .btn-xl {
+
+   color: #0c4128;
   padding: 1.25rem 2.25rem;
   font-size: 0.85rem;
   font-weight: 700;
@@ -10889,7 +10900,7 @@ hr.divider-light {
   padding: 0.75rem 0;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
-  color: #64CCC5;
+  color: #176B87;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #64CCC5 !important;
