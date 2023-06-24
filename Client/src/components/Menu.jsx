@@ -27,7 +27,7 @@ export function Menu() {
               <LI href={"/Inicio de session"} Name={"Inicio de session"} />
               <LI href={"/Registro"} Name={"Registro"} />
               <LI href={"/About us"} Name={"About us"} />
-              <LI href={"/HomeUSER"} Name={"HomeUSER"} />
+              <LI href={"/HomeUser"} Name={"HomeUser"} />
             </ul>
           </div>
         </div>
