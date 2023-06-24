@@ -1,24 +1,41 @@
-import sql from "mssql";
-import config from "../config";
+import mysql from "mysql"
 
-export const dbSettings = {
-  user: config.dbUser,
-  password: config.dbPassword,
-  server: config.dbServer,
-  database: config.dbDatabase,
-  options: {
-    encrypt: true, // for azure
-    trustServerCertificate: true, // change to true for local dev / self-signed certs
-  },
+const dbSettings = {
+  user: "root",
+  password: "",
+  host: "localhost",
+  database: "BD_Pensum",
+  port: 3306
 };
 
-export const getConnection = async () => {
+async function getConnection() {
   try {
-    const pool = await sql.connect(dbSettings);
-    return pool;
-  } catch (error) {
-    console.error(error);
-  }
-};
+    const connection = mysql.createConnection(dbSettings);
 
-export { sql };
+    connection.connect((err) => {
+      if (err) {
+        console.error('Error al conectar a la base de datos: ' + err.stack);
+        return;
+      }
+      console.log('Conexión a la base de datos establecida');
+    });
+
+    const result = await new Promise((resolve, reject) => {
+      connection.query('SELECT 1', (error, results) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(results);
+      });
+    });
+
+    console.log(result);
+
+    connection.end(); // Cerrar la conexión después de realizar la consulta
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+getConnection();
