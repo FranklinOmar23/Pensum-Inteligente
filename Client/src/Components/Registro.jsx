@@ -11,7 +11,7 @@ import InputRegistro from './Compo_Helpers/InputRegistro';
 function Registro(){
     return(
       <div className="registro-container">
-        <div className="fondoregistro"></div>
+        
         <div className='formulario-registro'>
         <h1 className='ColorFuente font-weight-bold'>¡Registrate!</h1>
         <br />
