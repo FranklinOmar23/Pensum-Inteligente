@@ -6,6 +6,7 @@ import React from "react";
 import {UserHome} from "./Components/UserHome";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import VistaHRegistro from './Components/VistaHRegistro';
 function App() {
     return (
         <div className="App">
@@ -14,6 +15,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                          <Route path="/HomeUSER" element={<UserHome/>}/>
+                         <Route path="/Registro" element={<VistaHRegistro/>}/>
                     </Routes>
                 </BrowserRouter>
             </header>
