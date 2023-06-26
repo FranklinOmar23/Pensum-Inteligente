@@ -20,8 +20,6 @@ export async function getConnection() {
       console.log('Conexión a la base de datos establecida');
     });
 
-
-    connection.end(); // Cerrar la conexión después de realizar la consulta
   } catch (error) {
     console.error("Error:", error);
   }

@@ -1,8 +1,8 @@
 // routes.js
 import express from 'express';
-const router = express.Router();
-
 import { registroController } from '../Controller/RegistroController.js';
+
+const router = express.Router();
 
 router.post('/registro', registroController);
 
