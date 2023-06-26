@@ -1,11 +1,12 @@
 import './App.css';
 import { Routes} from "react-router";
 import {BrowserRouter, Route} from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./Components/Home";
 import React from "react";
-import {UserHome} from "./components/UserHome";
+import {UserHome} from "./Components/UserHome";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import VistaHRegistro from './Components/VistaHRegistro';
 function App() {
     return (
         <div className="App">
@@ -13,8 +14,8 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                         <Route path="/HomeUser" element={<UserHome/>}/>
-
+                         <Route path="/HomeUSER" element={<UserHome/>}/>
+                         <Route path="/Registro" element={<VistaHRegistro/>}/>
                     </Routes>
                 </BrowserRouter>
             </header>
