@@ -17,7 +17,7 @@ export function Menu() {
       <nav className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div className="container px-4 px-lg-5">
           <a className="navbar-brand"><img src={logo} className="logo"/> </a>
-          <a className="navbar-brand" href="#page-top">Your Pensum</a>
+          <a className="navbar-brand" href="/">Your Pensum</a>
           <button
             className={`navbar-toggler navbar-toggler-right ${showOptions ? 'open' : ''}`}
             type="button"
