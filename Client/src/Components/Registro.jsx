@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './Registro.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -6,9 +6,20 @@ import { Form} from 'react-bootstrap';
 import InputContra from './Compo_Helpers/InputContra';
 import ButtonRegis from './Compo_Helpers/ButtonRegis';
 import InputRegistro from './Compo_Helpers/InputRegistro';
+import CheckB from './Compo_Helpers/CheckB';
 
 
 function Registro(){
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+
+  const handleCheckboxChange = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
     return(
       <div className="registro-container">
         
@@ -19,21 +30,19 @@ function Registro(){
       <Form>
       
       <InputRegistro label="Nombre"/>
-      <br />
-
-      <InputRegistro label="Universidad"/>
-      <br />
 
       <InputRegistro label="Correo"/>
-      <br />
 
-      <InputContra label="Contraseña"/>
-      <br />
+      <InputContra label="Contraseña" showPassword={showPassword}
+        handlePasswordChange={handlePasswordChange}/>
 
-      <InputContra label="Confirmar Contraseña"/>
-      <br />
+      <InputContra label="Confirmar Contraseña" showPassword={showPassword}
+        handlePasswordChange={handlePasswordChange}/>
+
+      <CheckB handleCheckboxChange={handleCheckboxChange}/>
 
       <ButtonRegis label="Registrarse"/>
+
     </Form>
     </div>
     </div>

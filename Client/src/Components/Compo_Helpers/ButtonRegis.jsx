@@ -9,14 +9,13 @@ function ButtonRegis ({label}){
 
 
     const nombre = document.getElementById('Nombre').value;
-    const universidad = document.getElementById('Universidad').value;
     const correo = document.getElementById('Correo').value;
     const contra = document.getElementById('Contraseña').value;
     const confircontra = document.getElementById('Confirmar Contraseña').value;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nombre && universidad && correo && contra && confircontra) {
+    if (nombre && nombre.length >= 2 && correo && contra && confircontra) {
       if (contra === confircontra) {
         if (contra.length >= 8) {
           if (emailRegex.test(correo)) {

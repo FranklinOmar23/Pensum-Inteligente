@@ -1,11 +1,11 @@
 @media (max-width: 769px) {
-  .container {
+  .N {
     display: none;
   }
 }
 
 @media (max-width: 1250px) {
-  .container {
+  .N {
     display: none;
   }
 }
