@@ -1,0 +1,11 @@
+@media (max-width: 769px) {
+  .N {
+    display: none;
+  }
+}
+
+@media (max-width: 1250px) {
+  .N {
+    display: none;
+  }
+}

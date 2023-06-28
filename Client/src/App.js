@@ -1,25 +1,29 @@
-
 import './App.css';
+import { Routes} from "react-router";
+import {BrowserRouter, Route} from "react-router-dom";
 
+import React from "react";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import Home from "./components/Home";
+import {UserHome} from "./components/UserHome";
+import VistaHRegistro from "./components/VistaHRegistro";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                         <Route path="/HomeUSER" element={<UserHome/>}/>
+                         <Route path="/Registro" element={<VistaHRegistro/>}/>
+                    </Routes>
+                </BrowserRouter>
+            </header>
+        </div>
+    );
 }
 
 export default App;
