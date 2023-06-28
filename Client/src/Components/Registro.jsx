@@ -8,6 +8,7 @@ import ButtonRegis from './Compo_Helpers/ButtonRegis';
 import InputRegistro from './Compo_Helpers/InputRegistro';
 
 
+
 function Registro(){
     return(
       <div className="registro-container">
