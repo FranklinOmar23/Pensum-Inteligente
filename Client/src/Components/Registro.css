@@ -3,7 +3,17 @@
     width: 100%;
     height: 100%;
   }
-
+.form-control-container{
+  padding-top: 20px;
+}
+.custom-label{
+  color: #DAFFFB;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
   .fondoregistro {
     position: flex;
     top: 0;

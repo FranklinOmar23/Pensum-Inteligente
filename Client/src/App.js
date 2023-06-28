@@ -1,12 +1,15 @@
 import './App.css';
 import { Routes} from "react-router";
 import {BrowserRouter, Route} from "react-router-dom";
-import Home from "./Components/Home";
+
 import React from "react";
-import {UserHome} from "./Components/UserHome";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import VistaHRegistro from './Components/VistaHRegistro';
+
+import Home from "./components/Home";
+import {UserHome} from "./components/UserHome";
+import VistaHRegistro from "./components/VistaHRegistro";
 function App() {
     return (
         <div className="App">
