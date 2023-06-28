@@ -1,31 +1,29 @@
-// registroController.js
 import { getConnection } from "../DataBase/Conection.js";
+import Estudiante from '../Models/Usuario.js';
 
-
-export const registroController = async (req, res) => {
-  // Obtener los datos enviados desde el formulario en el cuerpo de la solicitud
-  const {nombre, email, contrasena, universidad, matricula } = req.body;
-
+async function registroController(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) {
   try {
-    // Obtener la conexión a la base de datos
-    const connection = await getConnection();
+    const pool = getConnection(); // Obtener el pool de conexiones
 
-    // Realizar la inserción en la base de datos
-    const sql = `INSERT INTO estudiante (nombre, email, contrasena, universidad, matricula) VALUES (?, ?, ?, ?, ?)`;
-    connection.query(sql, [nombre, email, contrasena, universidad, matricula], (err, result) => {
-      if (err) {
-        console.error('Error al guardar los datos en la base de datos: ', err);
-        res.status(500).send('Error al guardar los datos');
-      } else {
-        console.log('Datos guardados correctamente');
-        res.status(200).send('Datos guardados correctamente');
-      }
+    const estudiante = new Estudiante(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera);
 
-      // Cerrar la conexión después de realizar la consulta
-      connection.end();
+    const query = "INSERT INTO estudiante (Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [estudiante.getId(), estudiante.getNombre(), estudiante.getEmail(), estudiante.getContraseña(), estudiante.getIDUniversidad(), estudiante.getMatricula(), estudiante.getIndice(), estudiante.getIDCarrera()];
+
+    await new Promise((resolve, reject) => {
+      pool.query(query, values, (error, results, fields) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        console.log("Estudiante insertado correctamente");
+        resolve();
+      });
     });
+
   } catch (error) {
-    console.error('Error al conectar a la base de datos: ', error);
-    res.status(500).send('Error al conectar a la base de datos');
+    console.error("Error al establecer la conexión:", error);
   }
-};
+}
+
+export { registroController };
