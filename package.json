@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "set NODE_OPTIONS=--experimental-vm-modules | jest",
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest --detectOpenHandles",
     "dev": "nodemon Server/Index.js --exec babel-node"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "jest": "^29.5.0",
     "mssql": "^9.1.1",
     "mysql": "^2.18.1",
+    "mysql2": "^3.4.1",
     "supertest": "^6.3.3"
   }
 }
