@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function ButtonRegis ({label}){
   const [fieldsValid, setFieldsValid] = useState(false);
@@ -6,7 +7,6 @@ function ButtonRegis ({label}){
 
   const handleValidation = (e) => {
     e.preventDefault();
-
 
     const nombre = document.getElementById('Nombre').value;
     const correo = document.getElementById('Correo').value;
@@ -39,6 +39,30 @@ function ButtonRegis ({label}){
       alert('Por favor, complete todos los campos.');
     }
   };
+
+  const handleFormSubmit = () => {
+    if (fieldsValid) {
+      const nombre = document.getElementById('Nombre').value;
+      const correo = document.getElementById('Correo').value;
+      const contra = document.getElementById('Contraseña').value;
+
+      axios
+        .post('/registro', {
+          nombre: nombre,
+          email: correo,
+          contrasena: contra
+        })
+        .then((response) => {
+          alert(response.data);
+          window.location.href = '/';
+        })
+        .catch((error) => {
+          console.error('Error al enviar el formulario:', error);
+          alert('Error al enviar el formulario. Por favor, inténtelo nuevamente.');
+        });
+    }
+  };
+
     return(
       <div className='button-container'>
       <button
