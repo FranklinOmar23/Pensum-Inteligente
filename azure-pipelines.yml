@@ -1,0 +1,46 @@
+trigger:
+  branches:
+    include:
+      - Dev
+      - Qa
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      cd Client
+      npm ci
+      npm run build
+    displayName: 'Build React frontend'
+
+  - task: PublishPipelineArtifact@0
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)/Client/build'
+      artifact: 'frontend-artifact'
+      publishLocation: 'pipeline'
+    displayName: 'Publish frontend build artifact'
+
+  - script: |
+      cd Server
+      npm ci
+      npm run test
+    displayName: 'Run Express backend tests'
+
+  - task: PublishPipelineArtifact@0
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)/Server/test-results'
+      artifact: 'backend-artifact'
+      publishLocation: 'pipeline'
+    displayName: 'Publish backend test artifact'
+
+  - task: Jest@0
+    inputs:
+      testDirectory: 'Server/Test'
+      displayName: 'Run Jest tests'
