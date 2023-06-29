@@ -2,7 +2,7 @@ trigger:
   branches:
     include:
       - Dev
-      - Qa
+      - QA
       - master
 
 pool:
@@ -40,7 +40,8 @@ steps:
       publishLocation: 'pipeline'
     displayName: 'Publish backend test artifact'
 
-  - task: Jest@0
+  - task: CmdLine@2
+    displayName: 'Run Jest tests'
     inputs:
-      testDirectory: 'Server/Test'
-      displayName: 'Run Jest tests'
+      script: 'npm test'
+      workingDirectory: 'Server/Test'  # Ajusta la ruta de acuerdo a tu estructura de carpetas
