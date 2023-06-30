@@ -3,12 +3,15 @@ trigger:
     include:
       - Dev
       - QA
-      - master
+      - Master
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
+jobs:
+- job: BuildFrontend
+  displayName: 'Build React frontend'
+  steps:
   - task: NodeTool@0
     inputs:
       versionSpec: '10.x'
@@ -16,32 +19,60 @@ steps:
 
   - script: |
       cd Client
-      npm ci
+      npm install
       npm run build
-    displayName: 'Build React frontend'
+    displayName: 'Build frontend'
 
   - task: PublishPipelineArtifact@0
     inputs:
       targetPath: '$(Build.ArtifactStagingDirectory)/Client/build'
       artifact: 'frontend-artifact'
       publishLocation: 'pipeline'
-    displayName: 'Publish frontend build artifact'
+    displayName: 'Publish frontend artifact'
+
+- job: BuildBackend
+  displayName: 'Build Express backend'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
 
   - script: |
       cd Server
-      npm ci
-      npm run test
-    displayName: 'Run Express backend tests'
+      npm install
+      npm run build
+    displayName: 'Build backend'
 
   - task: PublishPipelineArtifact@0
     inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)/Server/test-results'
+      targetPath: '$(Build.ArtifactStagingDirectory)/Server/build'
       artifact: 'backend-artifact'
       publishLocation: 'pipeline'
-    displayName: 'Publish backend test artifact'
+    displayName: 'Publish backend artifact'
 
-  - task: CmdLine@2
-    displayName: 'Run Jest tests'
+- job: RunUnitTests
+  displayName: 'Run Unit Tests'
+  steps:
+  - task: NodeTool@0
     inputs:
-      script: 'npm test'
-      workingDirectory: 'Server/Test'  # Ajusta la ruta de acuerdo a tu estructura de carpetas
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      cd Server
+      npm install
+      npm test
+    displayName: 'Run unit tests'
+
+- job: DeployToQA
+  displayName: 'Deploy to QA environment'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/qa'), eq(variables['Build.Reason'], 'IndividualCI'))
+  steps:
+  # Agrega los pasos necesarios para implementar en tu entorno de QA
+
+- job: DeployToProduction
+  displayName: 'Deploy to Production environment'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'IndividualCI'))
+  steps:
+  # Agrega los pasos necesarios para implementar en tu entorno de producción
