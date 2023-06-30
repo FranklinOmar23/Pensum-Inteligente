@@ -1,9 +1,9 @@
 trigger:
   branches:
     include:
-      - Dev
-      - QA
-      - Master
+      - develop
+      - qa
+      - master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -69,10 +69,22 @@ jobs:
   displayName: 'Deploy to QA environment'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/qa'), eq(variables['Build.Reason'], 'IndividualCI'))
   steps:
+  - task: DownloadPipelineArtifact@2
+    inputs:
+      artifactName: 'backend-artifact'
+      downloadPath: '$(Build.ArtifactStagingDirectory)/Backend'
+    displayName: 'Download backend artifact'
+  
   # Agrega los pasos necesarios para implementar en tu entorno de QA
 
 - job: DeployToProduction
   displayName: 'Deploy to Production environment'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'IndividualCI'))
   steps:
+  - task: DownloadPipelineArtifact@2
+    inputs:
+      artifactName: 'backend-artifact'
+      downloadPath: '$(Build.ArtifactStagingDirectory)/Backend'
+    displayName: 'Download backend artifact'
+  
   # Agrega los pasos necesarios para implementar en tu entorno de producción
