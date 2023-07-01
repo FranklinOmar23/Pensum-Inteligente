@@ -1,8 +1,8 @@
 trigger:
   branches:
     include:
-      - develop
-      - qa
+      - Dev
+      - QA
       - master
 
 pool:
