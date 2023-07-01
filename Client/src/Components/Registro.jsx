@@ -9,6 +9,7 @@ import InputRegistro from './Compo_Helpers/InputRegistro';
 import CheckB from './Compo_Helpers/CheckB';
 
 
+
 function Registro(){
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
