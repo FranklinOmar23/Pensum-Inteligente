@@ -30,14 +30,14 @@ function Registro(){
 
       <Form>
       
-      <InputRegistro label="Nombre"/>
+      <InputRegistro label="Nombre" id="Nombre"/>
 
-      <InputRegistro label="Correo"/>
+      <InputRegistro label="Correo" id="Correo"/>
 
-      <InputContra label="Contraseña" showPassword={showPassword}
+      <InputContra label="Contraseña" id="Contraseña"showPassword={showPassword}
         handlePasswordChange={handlePasswordChange}/>
 
-      <InputContra label="Confirmar Contraseña" showPassword={showPassword}
+      <InputContra label="Confirmar Contraseña" id="Confirmar Contraseña"showPassword={showPassword}
         handlePasswordChange={handlePasswordChange}/>
 
       <CheckB handleCheckboxChange={handleCheckboxChange}/>

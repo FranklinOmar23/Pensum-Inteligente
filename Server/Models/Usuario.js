@@ -9,7 +9,6 @@ class Estudiante {
     this.Indice = Indice;
     this.ID_Carrera = ID_Carrera;
   }
-
   // Métodos getter y setter para acceder a las propiedades del estudiante
 
   getId() {
