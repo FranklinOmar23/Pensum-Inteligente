@@ -1,11 +1,11 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
 
-function InputContra ({label, showPassword, handlePasswordChange}){
+function InputContra ({label, id, showPassword, handlePasswordChange}){
     return(
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
       <div className="form-control-container">
-        <Form.Control plaintext id={label} className="effect-2 custom-input" type={showPassword ? 'text' : 'password'} placeholder={label} onChange={handlePasswordChange}  required  style={{ width: '400px', color: '#DAFFFB' }}/>
+        <Form.Control plaintext id={id} className="effect-2 custom-input" type={showPassword ? 'text' : 'password'} placeholder={label} onChange={handlePasswordChange}  required  style={{ width: '400px', color: '#DAFFFB' }}/>
         <div className="focus-border"></div>
       </div>
     </Form.Group>
