@@ -14,7 +14,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("../public/fondo.jpg");
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #146C94;
 }
 
 @keyframes App-logo-spin {
