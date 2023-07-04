@@ -8,7 +8,7 @@ describe('POST /registro', () => {
   it('debería insertar un estudiante en la base de datos', async () => {
     // Datos del estudiante a insertar
     const estudiante = new Estudiante(
-      123457795,//ID
+      1234577958845,//ID
       'Franklin Disla',//Nombre
       'estudiante@itla.com',//Email
       'contraseña12342',//Contraseña

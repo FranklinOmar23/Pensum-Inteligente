@@ -1,11 +1,11 @@
 import { getConnection } from "../DataBase/Conection.js";
 import Estudiante from '../Models/Usuario.js';
 
-async function registroController(nombre, email, contrasena) {
+async function registroController(nombre, email, password) {
   try {
     const pool = getConnection(); // Obtener el pool de conexiones
 
-    const estudiante = new Estudiante(nombre, email, contrasena);
+    const estudiante = new Estudiante(null, nombre, email, password, null, null, null, null);
 
     const query = "INSERT INTO estudiante (Nombre, Email, Contraseña) VALUES (?, ?, ?)";
     const values = [estudiante.getNombre(), estudiante.getEmail(), estudiante.getContraseña()];
