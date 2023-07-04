@@ -1,14 +1,14 @@
 import { getConnection } from "../DataBase/Conection.js";
 import Estudiante from '../Models/Usuario.js';
 
-async function registroController(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) {
+async function registroController(nombre, email, password) {
   try {
     const pool = getConnection(); // Obtener el pool de conexiones
 
-    const estudiante = new Estudiante(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera);
+    const estudiante = new Estudiante(null, nombre, email, password, null, null, null, null);
 
-    const query = "INSERT INTO estudiante (Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    const values = [estudiante.getId(), estudiante.getNombre(), estudiante.getEmail(), estudiante.getContraseña(), estudiante.getIDUniversidad(), estudiante.getMatricula(), estudiante.getIndice(), estudiante.getIDCarrera()];
+    const query = "INSERT INTO estudiante (Nombre, Email, Contraseña) VALUES (?, ?, ?)";
+    const values = [estudiante.getNombre(), estudiante.getEmail(), estudiante.getContraseña()];
 
     await new Promise((resolve, reject) => {
       pool.query(query, values, (error, results, fields) => {

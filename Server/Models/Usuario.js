@@ -1,3 +1,4 @@
+// Usuario.js
 class Estudiante {
   constructor(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) {
     this.Id = Id;
@@ -9,6 +10,7 @@ class Estudiante {
     this.Indice = Indice;
     this.ID_Carrera = ID_Carrera;
   }
+
   // Métodos getter y setter para acceder a las propiedades del estudiante
 
   getId() {
