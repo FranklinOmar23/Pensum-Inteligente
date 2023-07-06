@@ -9,20 +9,20 @@ function ButtonRegis({ label }) {
 
   const nombre = document.getElementById('Nombre').value;
   const correo = document.getElementById('Correo').value;
-  const contra = document.getElementById('Contraseña').value;
+  const contrasena = document.getElementById('Contraseña').value;
   const confircontra = document.getElementById('Confirmar Contraseña').value;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (nombre && nombre.length >= 2 && correo && contra && confircontra) {
-    if (contra === confircontra) {
-      if (contra.length >= 8) {
+  if (nombre && nombre.length >= 2 && correo && contrasena && confircontra) {
+    if (contrasena === confircontra) {
+      if (contrasena.length >= 8) {
         if (emailRegex.test(correo)) {
           axios
             .post('/registro', {
-              nombre: nombre,
-              email: correo,
-              contrasena: contra
+              Nombre: nombre,
+              Email: correo,
+              Contraseña: contrasena
             })
             .then((response) => {
               console.log(response.data);
