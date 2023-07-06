@@ -1,4 +1,6 @@
 import './App.css';
+import BasicExample from './componets/Login/loginController';
+
 import { Routes} from "react-router";
 import {BrowserRouter, Route} from "react-router-dom";
 
@@ -11,7 +13,7 @@ import Home from './Components/Home'
 import {UserHome} from './Components/UserHome'
 import VistaHRegistro from './Components/VistaHRegistro'
 function App() {
-    return (
+  return (
         <div className="App">
             <header className="App-header">
                 <BrowserRouter>
