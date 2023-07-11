@@ -6,11 +6,7 @@ import '../../../sb-admin-2.min.css'
 export function MenuUserHome(){
     return(
         <>
-            <div id="wrapper">
-                <BarraLateral/>
-
-            </div>
-
+            <BarraLateral/>
      </>
     );
 };

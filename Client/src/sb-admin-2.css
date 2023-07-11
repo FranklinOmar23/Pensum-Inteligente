@@ -78,15 +78,49 @@ hr {
   height: 0;
   overflow: visible;
 }
+.igs{
+  width: 25rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+.progress-bar-bg-danger{
+   width: 20%;
+   aria-valuenow:20;
+  aria-valuemin: 0;
+  aria-valuemax:100;
+}
+.rd{
+   width: 40%;
+   aria-valuenow:40;
+  aria-valuemin: 0;
+  aria-valuemax:100;
 
+}
+.progreesmb-4{
+    width: 60%;
+   aria-valuenow:60;
+  aria-valuemin: 0;
+  aria-valuemax:100;
+}
+.bginfopogress{
+  width: 80%;
+   aria-valuenow:80;
+  aria-valuemin: 0;
+  aria-valuemax:100;
+}
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+.pgbg-succes{
+  width: 100%;
+  aria-valuenow:100;
+  aria-valuemin: 0;
+  aria-valuemax:100;
+
 }
 
 abbr[title],
