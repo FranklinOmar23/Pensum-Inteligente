@@ -1,7 +1,7 @@
-import "../DataBase/Conection.js" // Ruta al archivo de conexión a la base de datos
-
+// Usuario.js
 class Estudiante {
-  constructor(Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) {
+  constructor(Id, Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera) {
+    this.Id = Id;
     this.Nombre = Nombre;
     this.Email = Email;
     this.Contraseña = Contraseña;
@@ -11,34 +11,71 @@ class Estudiante {
     this.ID_Carrera = ID_Carrera;
   }
 
-  guardar() {
-    return new Promise((resolve, reject) => {
-      // Consulta SQL para insertar un nuevo estudiante en la tabla Estudiante
-      const sql = `
-        INSERT INTO Estudiante (Nombre, Email, Contraseña, ID_Universidad, Matricula, Indice, ID_Carrera)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+  // Métodos getter y setter para acceder a las propiedades del estudiante
 
-      // Valores a insertar en la consulta SQL
-      const values = [
-        this.Nombre,
-        this.Email,
-        this.Contraseña,
-        this.ID_Universidad,
-        this.Matricula,
-        this.Indice,
-        this.ID_Carrera
-      ];
+  getId() {
+    return this.Id;
+  }
 
-      // Ejecutar la consulta SQL con los valores
-      connection.query(sql, values, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      });
-    });
+  setId(Id) {
+    this.Id = Id;
+  }
+
+  getNombre() {
+    return this.Nombre;
+  }
+
+  setNombre(Nombre) {
+    this.Nombre = Nombre;
+  }
+
+  getEmail() {
+    return this.Email;
+  }
+
+  setEmail(Email) {
+    this.Email = Email;
+  }
+
+  getContraseña() {
+    return this.Contraseña;
+  }
+
+  setContraseña(Contraseña) {
+    this.Contraseña = Contraseña;
+  }
+
+  getIDUniversidad() {
+    return this.ID_Universidad;
+  }
+
+  setIDUniversidad(ID_Universidad) {
+    this.ID_Universidad = ID_Universidad;
+  }
+
+  getMatricula() {
+    return this.Matricula;
+  }
+
+  setMatricula(Matricula) {
+    this.Matricula = Matricula;
+  }
+
+  getIndice() {
+    return this.Indice;
+  }
+
+  setIndice(Indice) {
+    this.Indice = Indice;
+  }
+
+  getIDCarrera() {
+    return this.ID_Carrera;
+  }
+
+  setIDCarrera(ID_Carrera) {
+    this.ID_Carrera = ID_Carrera;
   }
 }
 
-module.exports = Estudiante;
+export default Estudiante;

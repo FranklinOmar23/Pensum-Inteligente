@@ -1,11 +1,22 @@
 @media (max-width: 769px) {
-  .container1 {
+  .N {
     display: none;
   }
 }
 
+@media (min-width: 1080px) {
+  .N {
+    padding-right: 60px;
+  }
+}
+
 @media (max-width: 1250px) {
-  .container1 {
+  .N {
     display: none;
+  }
+}
+@media (max-width: 1250px) {
+  .registro-container {
+    padding-top: 50px;
   }
 }
