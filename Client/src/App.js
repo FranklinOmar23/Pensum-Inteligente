@@ -14,9 +14,6 @@ import Home from "./Components/Home"
 import {UserHome} from "./Components/UserHome"
 import VistaHRegistro from "./Components/VistaHRegistro"
 
-/*import Home from "./components/Home";
-import {UserHome} from "./components/UserHome";
-import VistaHRegistro from "./components/VistaHRegistro";*/
 
 
 function App() {
