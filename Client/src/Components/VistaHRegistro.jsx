@@ -13,6 +13,7 @@ export function VistaHRegistro (){
             <div className="N">
             <Texto/>
 
+
             </div>
             <Registro />
             </>
