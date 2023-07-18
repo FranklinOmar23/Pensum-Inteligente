@@ -16,6 +16,7 @@ export function VistaHRegistro (){
 
 
             </div>
+
             <Registro />
             </>
 
