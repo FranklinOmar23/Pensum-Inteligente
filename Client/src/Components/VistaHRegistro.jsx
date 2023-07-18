@@ -18,6 +18,6 @@ export function VistaHRegistro (){
         
     );
 
-}
+};
 
 export default VistaHRegistro;
