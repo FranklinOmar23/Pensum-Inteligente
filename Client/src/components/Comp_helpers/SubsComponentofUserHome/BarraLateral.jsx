@@ -4,8 +4,7 @@ import {NavItem, NavItemCharts, PageCollapseMenu, UtilitiesCollapsMenu} from "./
 import '../../../sb-admin-2.css'
 import '../../../sb-admin-2.min.css'
 export function BarraLateral(){
-    return(
-      <>
+    return(<>
           <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                  <BarraLatealBrand/>
