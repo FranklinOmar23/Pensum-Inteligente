@@ -6,6 +6,7 @@ import { Texto } from "./Texto";
 
 export function VistaHRegistro (){
 
+
     return (
 
             <>
