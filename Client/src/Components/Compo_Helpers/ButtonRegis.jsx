@@ -51,6 +51,7 @@ function ButtonRegis({ label }) {
       <button
         className={`btn btn1 ${fieldsValid ? 'valid' : ''}`}
         style={{ color: '#DAFFFB', fontWeight: 'bold' }}
+        type={type}
         onClick={handleFormSubmit}
       >
         {label}

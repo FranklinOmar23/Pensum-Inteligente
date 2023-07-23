@@ -10,24 +10,34 @@ import React from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Home from "./Components/Home"
-import {UserHome} from "./Components/UserHome"
-import VistaHRegistro from "./Components/VistaHRegistro"
+import Home from "./Components/Home";
+
+import VistaHRegistro from "./Components/VistaHRegistro";
+import {UserHome} from "./Components/UserHome";
+import UserProvider from './Context/UserCurrent';
+
+
+
 
 
 
 function App() {
+
+
   return (
+      
         <div className="App">
+            
             <header className="App-header">
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                         <Route path="/HomeUSER" element={<UserHome/>}/>
+                         <Route path="/HomeUSER" element={<UserHome  />}/>
                          <Route path="/Registro" element={<VistaHRegistro/>}/>
                     </Routes>
                 </BrowserRouter>
             </header>
+       
         </div>
     );
 }

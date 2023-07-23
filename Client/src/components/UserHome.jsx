@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import {MenuUserHome}from "./Comp_helpers/SubsComponentofUserHome/MenuUserHome";
 import '../sb-admin-2.css';
 import '../sb-admin-2.min.css';
 import {ContentWrapperofSecodHome} from "./Comp_helpers/ContentWrapperofSecodHome";
+import UserProvider from "../Context/UserCurrent";
+
 
 
 
 
  export function UserHome(){
-
+    
+  
     return(<>
+    <UserProvider>
 
           <div id="wrapper">
-              <MenuUserHome/>
+              <MenuUserHome />
               <ContentWrapperofSecodHome/>
           </div>
           <a className="scroll-to-top rounded" href="#page-top">
@@ -25,7 +29,7 @@ import {ContentWrapperofSecodHome} from "./Comp_helpers/ContentWrapperofSecodHom
                       <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                           <button className="close" type="button" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">×</span>
+                              <span aria-hidden="true"> </span>
                           </button>
                       </div>
                       <div className="modal-body">Select "Logout" below if you are ready to end your current session.
@@ -38,7 +42,7 @@ import {ContentWrapperofSecodHome} from "./Comp_helpers/ContentWrapperofSecodHom
               </div>
           </div>
 
-
+          </UserProvider>
 
     </>
 

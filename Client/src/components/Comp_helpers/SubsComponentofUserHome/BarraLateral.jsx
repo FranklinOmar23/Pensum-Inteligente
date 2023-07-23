@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import {BarraLatealBrand} from "./BarraLatealBrand";
 import {NavItem, NavItemCharts, PageCollapseMenu, UtilitiesCollapsMenu} from "./PageCollapseMenu";
 import '../../../sb-admin-2.css'
 import '../../../sb-admin-2.min.css'
+import { UserContext } from "../../../Context/UserContext";
+
 export function BarraLateral(){
     return(<>
+      
           <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                  <BarraLatealBrand/>
@@ -16,7 +19,7 @@ export function BarraLateral(){
                   <li className="nav-item active">
                       <a className="nav-link" href="index.html">
                           <i className="fas fa-fw fa-tachometer-alt"></i>
-                          <span>Dashboard</span></a>
+                          <span> </span></a>
                   </li>
 
 
@@ -24,7 +27,7 @@ export function BarraLateral(){
 
 
                       <div className="sidebar-heading">
-                          Estudiante
+                          Interface
                       </div>
 
                     <PageCollapseMenu/>
@@ -53,4 +56,5 @@ export function BarraLateral(){
       </>
     );
 }
-export default  BarraLateral();
+//coño
+export default BarraLateral;
