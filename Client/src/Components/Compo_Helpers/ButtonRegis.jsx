@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function ButtonRegis({ label }) {
+function ButtonRegis({ label,type }) {
   const [fieldsValid, setFieldsValid] = useState(false);
 
   const handleFormSubmit = (e) => {
@@ -50,6 +50,7 @@ function ButtonRegis({ label }) {
       <button
         className={`btn btn1 ${fieldsValid ? 'valid' : ''}`}
         style={{ color: '#DAFFFB', fontWeight: 'bold' }}
+        type={type}
         onClick={handleFormSubmit}
       >
         {label}

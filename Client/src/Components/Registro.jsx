@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+//importo el usestate y el contexto creado
+import React,{useState,useContext} from "react";
+import  {UserCurrent} from "../Context/UserCurrent";
 import './Registro.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -10,6 +12,7 @@ import CheckB from './Compo_Helpers/CheckB';
 
 
 function Registro(){
+ 
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
@@ -27,13 +30,13 @@ function Registro(){
         <h1 className='ColorFuente font-weight-bold'>¡Registrate!</h1>
         <br />
 
-      <Form>
+      <Form >
       
-      <InputRegistro label="Nombre" id="Nombre"/>
+      <InputRegistro  label="Nombre" id="Nombre"  />
 
-      <InputRegistro label="Correo" id="Correo"/>
+      <InputRegistro label="Correo" id="Correo" />
 
-      <InputContra label="Contraseña" id="Contraseña" showPassword={showPassword}
+      <InputContra   label="Contraseña" id="Contraseña" showPassword={showPassword}
         handlePasswordChange={handlePasswordChange}/>
 
       <InputContra label="Confirmar Contraseña" id="Confirmar Contraseña" showPassword={showPassword}
@@ -41,7 +44,7 @@ function Registro(){
 
       <CheckB handleCheckboxChange={handleCheckboxChange}/>
 
-      <ButtonRegis label="Registrarse"/>
+      <ButtonRegis type="submit" label="Registrarse"/>
 
     </Form>
     </div>
