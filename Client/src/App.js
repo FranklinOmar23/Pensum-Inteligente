@@ -1,5 +1,7 @@
 import './App.css';
 import BasicExample from './componets/Login/loginController';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 import { Routes} from "react-router";
 import {BrowserRouter, Route} from "react-router-dom";

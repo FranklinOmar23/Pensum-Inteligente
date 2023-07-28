@@ -1,6 +1,7 @@
 import express from 'express';
 import { registroController } from '../Controller/RegistroController.js';
 import { loginController } from '../Controller/loginController.js';
+import{obtenerUniversidades} from '../Controller/UniversidadController.js'
 
 const router = express.Router();
 
@@ -13,5 +14,7 @@ router.post('/registro', (req, res) => {
 });
 
 router.post('/inicioSecion', loginController);
+
+router.get('/universidad', obtenerUniversidades)
 
 export default router;
