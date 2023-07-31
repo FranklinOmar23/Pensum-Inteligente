@@ -4,6 +4,7 @@ import '../sb-admin-2.css';
 import '../sb-admin-2.min.css';
 import {ContentWrapperofSecodHome} from "./Comp_helpers/ContentWrapperofSecodHome";
 import UserProvider from "../Context/UserCurrent";
+import { UserContext } from "../Context/UserContext";
 
 
 
@@ -13,7 +14,7 @@ import UserProvider from "../Context/UserCurrent";
     
   
     return(<>
-    <UserProvider>
+  
 
           <div id="wrapper">
               <MenuUserHome />
@@ -42,7 +43,7 @@ import UserProvider from "../Context/UserCurrent";
               </div>
           </div>
 
-          </UserProvider>
+       
 
     </>
 

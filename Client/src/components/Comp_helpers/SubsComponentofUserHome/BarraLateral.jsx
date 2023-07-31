@@ -6,9 +6,14 @@ import '../../../sb-admin-2.min.css'
 import { UserContext } from "../../../Context/UserContext";
 
 export function BarraLateral(){
-    const {User, setUser }= useContext(UserContext);
+    const  {User}  = useContext(UserContext);
+    console.log(User)
    
-   
+    if (!User.name) {
+        // Mostrar un mensaje de carga o contenido alternativo mientras se obtienen los datos del usuario
+        return <p>Cargando Usuario...</p>;
+      }
+    
     
 
     return(<>
@@ -29,10 +34,13 @@ export function BarraLateral(){
 
 
                   <hr className="sidebar-divider"/>
+                  
+                  
 
+                      <div className="sidebar-brand-text mx-3">
+                      <h6>{User.name} </h6>
 
-                      <div className="sidebar-heading">
-                          <h6>{User.name} </h6>
+                          
                       </div>
 
                     <PageCollapseMenu/>
