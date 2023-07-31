@@ -24,7 +24,7 @@ export function BarraLateral(){
 
 
                       <div className="sidebar-heading">
-                          Interface
+                          Estudiante
                       </div>
 
                     <PageCollapseMenu/>
@@ -35,22 +35,15 @@ export function BarraLateral(){
 
 
                   <div className="sidebar-heading">
-                      Addons
+                      Mas
                   </div>
                <NavItem/>
-               <NavItemCharts/>
+                {/*<NavItemCharts/>*/}
 
               <hr className="sidebar-divider d-none d-md-block"/>
               <div className="text-center d-none d-md-inline">
                   <button className="rounded-circle border-0" id="sidebarToggle"></button>
-              </div>
-              <div className="sidebar-card d-none d-lg-flex">
-                  <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..."/>
-                  <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features,
-                      components, and more!</p>
-                  <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-                      Pro!</a>
-
+                  <span>Cerrar sesion</span>
               </div>
 
 
