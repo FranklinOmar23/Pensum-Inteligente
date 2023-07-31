@@ -1,59 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
 import './Registro.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import { Form} from 'react-bootstrap';
-import InputContra from './Compo_Helpers/InputContra';
-import ButtonRegis from './Compo_Helpers/ButtonRegis';
-import InputRegistro from './Compo_Helpers/InputRegistro';
-import CheckB from './Compo_Helpers/CheckB';
+import { Form } from 'react-bootstrap';
+import { UserContext } from "../Context/UserContext";
 
+function Registro() {
+  //Realizo la implementacion para usar los valores del contexto 
+  const { User, UpdateUser } = useContext(UserContext);
+  //uso el From data coon useState para cambiar sus valores 
+  const [formData, setFormData] = useState({
+    name: '',
+    lastname: '',
+    Id: '',
+    password: '',
+    confirmPassword: '',
+    carrera: '',
+    email: '',
+  });
+// Aqui verifico los cambios del imputs con una copia de los valores de formdata
+  const ChagesInInputs = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
 
-function Registro(){
-  //Formulario del Registro
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState('');
+  //aqui realizo la funcion de actualizar el contexto atravez del fromdata y veficio los datos y comparo als contraseñas
+  const Submit = (e) => {
+    console.log("Datos del usuario:", User);
+    e.preventDefault();
+    UpdateUser(formData);
+    if (formData.password !== formData.confirmPassword) {
+      // Mostrar mensaje de error de contraseña no coincidente
+      return;
+    }
+    
+    
+  }
 
   //Hago la constante para el chechbox
   const handleCheckboxChange = () => {
-    setShowPassword(!showPassword);
-  };
+    setFormData({ ...formData, showPassword: !formData.showPassword });
+  }
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-    return(
-
-      //Formulario de Registro estructurado por Componentes 
-      //A Cada Componente le pongo un label y un Id para luego usarlo en la logica
-      <div className="registro-container">
-        
-        <div className='formulario-registro'>
-        <h1 className='ColorFuente font-weight-bold'>¡Registrate!</h1>
+  return (
+    <div className="registro-container">
+      <div className='formulario-registro'>
+        <h1 className='ColorFuente font-weight-bold'>¡Regístrate!</h1>
         <br />
+        <Form  onSubmit={Submit}>
+          <Form.Group className="mb-3">
+            <Form.Label >Nombre</Form.Label>
+            <Form.Control type="text" name="name" value={formData.name} onChange={ChagesInInputs} required />
+          </Form.Group>
 
-      <Form>
+          <Form.Group> 
+            <Form.Label>Correo</Form.Label>
+            <Form.Control type="email" name="email" value={formData.email} onChange={ChagesInInputs} required />
+          </Form.Group>
 
-      <InputRegistro label="Nombre" id="Nombre"/>
+          <Form.Group>
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type={formData.showPassword ? "text" : "password"} name="password" value={formData.password} onChange={ChagesInInputs} required />
+          </Form.Group>
 
-      <InputRegistro label="Correo" id="Correo"/>
+          <Form.Group>
+            <Form.Label>Confirmar Contraseña</Form.Label>
+            <Form.Control type={formData.showPassword ? "text" : "password"} name="confirmPassword" value={formData.confirmPassword} onChange={ChagesInInputs} required />
+          </Form.Group>
 
-      <InputContra label="Contraseña" id="Contraseña" showPassword={showPassword}
-        handlePasswordChange={handlePasswordChange}/>
+          <Form.Group>
+            <Form.Check type="checkbox" label="Mostrar Contraseña" checked={formData.showPassword} onChange={handleCheckboxChange} />
+          </Form.Group>
 
-      <InputContra label="Confirmar Contraseña" id="Confirmar Contraseña" showPassword={showPassword}
-        handlePasswordChange={handlePasswordChange}/>
-
-      <CheckB handleCheckboxChange={handleCheckboxChange}/>
-
-      <ButtonRegis label="Registrarse"/>
-
-    </Form>
+          <button type="submit" >Registrarse</button>
+        </Form>
+      </div>
     </div>
-    
-    </div>
-    //Hago la logica y implemento las constantes y los chechbox para que la contraseña se muestre al darle al Check
-);
+  );
 }
 
 export default Registro;
