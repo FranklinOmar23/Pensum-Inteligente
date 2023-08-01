@@ -6,16 +6,21 @@ import { Texto } from "./Texto";
 
 export function VistaHRegistro (){
 
+
     return (
-        
+
             <>
             <Menu/>
             <div className="N">
             <Texto/>
+
+
             </div>
+
             <Registro />
             </>
-        
+
+
     );
 
 }
