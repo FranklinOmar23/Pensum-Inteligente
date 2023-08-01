@@ -8,9 +8,10 @@ export function VistaHRegistro (){
 
 
     return (
-
+            //Hago la vista Home+Registro en la cual muestro mi formulario en conjunto con la vista Home.
             <>
             <Menu/>
+        
             <div className="N">
             <Texto/>
 
@@ -19,7 +20,7 @@ export function VistaHRegistro (){
 
             <Registro />
             </>
-
+            //Modifico el Texto y añado un responsive al texto para que se oculte segun el tamaño que tenga la pagina.
 
     );
 

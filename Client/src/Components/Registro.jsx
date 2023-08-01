@@ -10,9 +10,11 @@ import CheckB from './Compo_Helpers/CheckB';
 
 
 function Registro(){
+  //Formulario del Registro
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
+  //Hago la constante para el chechbox
   const handleCheckboxChange = () => {
     setShowPassword(!showPassword);
   };
@@ -21,6 +23,9 @@ function Registro(){
     setPassword(e.target.value);
   };
     return(
+
+      //Formulario de Registro estructurado por Componentes 
+      //A Cada Componente le pongo un label y un Id para luego usarlo en la logica
       <div className="registro-container">
         
         <div className='formulario-registro'>
@@ -28,7 +33,7 @@ function Registro(){
         <br />
 
       <Form>
-      
+
       <InputRegistro label="Nombre" id="Nombre"/>
 
       <InputRegistro label="Correo" id="Correo"/>
@@ -45,8 +50,10 @@ function Registro(){
 
     </Form>
     </div>
+    
     </div>
-    );
+    //Hago la logica y implemento las constantes y los chechbox para que la contraseña se muestre al darle al Check
+);
 }
 
 export default Registro;

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 function ButtonRegis({ label }) {
+
+  //Componente que contiene un Boton en el cual esta la logica del Registro.
   const [fieldsValid, setFieldsValid] = useState(false);
 
   const handleFormSubmit = (e) => {
   e.preventDefault();
-
+  // Declaro los campos en constantes para su uso.
   const nombre = document.getElementById('Nombre').value;
   const correo = document.getElementById('Correo').value;
   const contrasena = document.getElementById('Contraseña').value;
@@ -14,38 +17,36 @@ function ButtonRegis({ label }) {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  //Procedo a hacer las validaciones para cada campo y cada problema.
   if (nombre && nombre.length >= 2 && correo && contrasena && confircontra) {
     if (contrasena === confircontra) {
       if (contrasena.length >= 8) {
         if (emailRegex.test(correo)) {
-          axios
-            .post('/registro', {
-              Nombre: nombre,
-              Email: correo,
-              Contraseña: contrasena
-            })
-            .then((response) => {
-              console.log(response.data);
-              alert('Insertado Correctamente');
-            })
-            .catch((error) => {
-              console.error('Error al enviar el formulario:', error);
-            });
+          const userData ={
+            Nombre: nombre,
+            Email: correo,
+            Contraseña: contrasena
+          };
+          //Guardo en el LocalStorage los datos que se hayan insertado para pasar a la siguiente fase del registro.
+          localStorage.setItem('userData', JSON.stringify(userData));
+              toast.success('Insertado Correctamente');
         } else {
-          alert('Por favor, ingrese un correo electrónico válido.');
+          toast.error('Por favor, ingrese un correo electrónico válido.');
         }
       } else {
-        alert('La contraseña debe tener al menos 8 caracteres.');
+        toast.error('La contraseña debe tener al menos 8 caracteres.');
       }
     } else {
-      alert('Las contraseñas no coinciden. Por favor, verifique nuevamente.');
+      toast.error('Las contraseñas no coinciden. Por favor, verifique nuevamente.');
     }
   } else {
-    alert('Por favor, complete todos los campos.');
+    toast.error('Por favor, complete todos los campos.');
   }
 };
 
   return (
+
+    //Boton del Formulario del Registro.
     <div className='button-container'>
       <button
         className={`btn btn1 ${fieldsValid ? 'valid' : ''}`}
@@ -54,7 +55,18 @@ function ButtonRegis({ label }) {
       >
         {label}
       </button>
+    
+      <Toaster 
+      toastOptions={{
+        style: {
+          height: '70px',
+          width: '280px',
+          fontSize: '16px',
+        },
+      }}
+        />
     </div>
+    //Añado un Toaster para mas una UI mas interactiva y facil de entender.
   );
 }
 
