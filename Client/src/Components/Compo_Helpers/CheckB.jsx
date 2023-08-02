@@ -3,6 +3,8 @@ import { Form } from 'react-bootstrap';
 
 const CheckB = ({ handleCheckboxChange }) => {
     return (
+
+      //Componente que contiene un Checkbox del Formulario de Registro que permite ver la contraseña
       <Form.Group controlId="formBasicCheckbox">
         <Form.Check
           type="checkbox"
