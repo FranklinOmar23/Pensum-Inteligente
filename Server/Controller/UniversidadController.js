@@ -1,4 +1,3 @@
-// UniversidadController.js
 import { getConnection } from "../DataBase/Conection.js";
 
 export const obtenerUniversidades = async (req, res) => {
@@ -17,8 +16,15 @@ export const obtenerUniversidades = async (req, res) => {
           reject(err);
         } else {
           console.log("Datos obtenidos correctamente");
-          console.log("Resultado de la consulta: ", result);
-          resolve(result);
+          // Convertir los datos de tipo BLOB a base64 antes de enviarlos al cliente
+          const universidadesWithImages = result.map((universidad) => {
+            const imageData = Buffer.from(universidad.imagen).toString('base64');
+            return {
+              ...universidad,
+              imagen: imageData,
+            };
+          });
+          resolve(universidadesWithImages);
         }
 
         // ¡IMPORTANTE! Libera la conexión después de que la consulta haya finalizado

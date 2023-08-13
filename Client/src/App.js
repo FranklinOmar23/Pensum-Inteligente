@@ -10,9 +10,11 @@ import React from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Home from "./Components/Home"
-import {UserHome} from "./Components/UserHome"
-import VistaHRegistro from "./Components/VistaHRegistro"
+import Home from "./components/Home"
+import {UserHome} from "./components/UserHome"
+//import VistaHRegistro from "./Components/VistaHRegistro"
+import VistaHRegistro from "./components/VistaHRegistro"
+import UniversidadComponent from './components/ContRegistro';
 
 /*import Home from "./components/Home";
 import {UserHome} from "./components/UserHome";
@@ -28,6 +30,7 @@ function App() {
                         <Route path="/" element={<Home/>}/>
                          <Route path="/HomeUSER" element={<UserHome/>}/>
                          <Route path="/Registro" element={<VistaHRegistro/>}/>
+                         <Route path="/Registro2" element={<UniversidadComponent/>}/>
                     </Routes>
                 </BrowserRouter>
             </header>
