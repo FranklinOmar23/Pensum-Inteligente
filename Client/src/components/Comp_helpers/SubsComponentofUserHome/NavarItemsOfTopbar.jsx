@@ -85,6 +85,7 @@ export function Alerts(){
     )
 }
 export function Messages(){
+
     return(<>
 
         <li className="nav-item dropdown no-arrow mx-1">
@@ -155,6 +156,7 @@ export function Messages(){
                 <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
             </div>
         </li>
+
 
     </>
     )

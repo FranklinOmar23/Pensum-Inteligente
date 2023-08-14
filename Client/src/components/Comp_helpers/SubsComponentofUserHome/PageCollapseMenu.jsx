@@ -26,6 +26,7 @@ export function PageCollapseMenu(){
     )
 }
 export function UtilitiesCollapsMenu(){
+
     return(
         <>
             <li className="nav-item">
@@ -52,7 +53,7 @@ export function UtilitiesCollapsMenu(){
 export  function NavItem(){
     return(
         <>
-            <>
+
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                        aria-expanded="true" aria-controls="collapsePages">
@@ -73,7 +74,7 @@ export  function NavItem(){
                         </div>
                     </div>
                 </li>
-            </>
+
         </>
     )
 

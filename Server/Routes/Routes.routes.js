@@ -5,9 +5,9 @@ import { loginController } from '../Controller/loginController.js';
 const router = express.Router();
 
 router.post('/registro', (req, res) => {
-  const { nombre, email, password } = req.body;
+  const { Nombre, Email, Contraseña } = req.body;
 
-  registroController(nombre, email, password);
+  registroController(Nombre, Email, Contraseña);
 
   res.status(200).json({ message: 'Successfully registered user' });
 });
