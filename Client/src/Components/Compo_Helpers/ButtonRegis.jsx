@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-<<<<<<< HEAD
+
 function ButtonRegis({ label }) {
-=======
+
 function ButtonRegis() {
->>>>>>> 1c1a020 (combinacion de logicas)
+
 
   //Componente que contiene un Boton en el cual esta la logica del Registro.
   const [fieldsValid, setFieldsValid] = useState(false);
@@ -73,6 +73,7 @@ function ButtonRegis() {
     </div>
     //Añado un Toaster para mas una UI mas interactiva y facil de entender.
   );
+}
 }
 
 export default ButtonRegis;

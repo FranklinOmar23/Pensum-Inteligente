@@ -82,10 +82,9 @@ function Registro() {
     //Guardo en el LocalStorage los datos que se hayan insertado para pasar a la siguiente fase del registro.
     
 
-<<<<<<< HEAD
-=======
+
   }
->>>>>>> 1c1a020 (combinacion de logicas)
+
   //Hago la constante para el chechbox
   const handleCheckboxChange = () => {
     setShowPassword(!showPassword);
