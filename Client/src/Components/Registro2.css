@@ -1,67 +1,72 @@
-.book {
-    position: relative;
-    border-radius: 10px;
-    width: 220px;
-    height: 300px;
-    margin: 15px;
-    background-color: #176B87;
-    -webkit-box-shadow: 1px 1px 12px #000;
-    box-shadow: 1px 1px 12px #000;
-    -webkit-transform: preserve-3d;
-    -ms-transform: preserve-3d;
-    transform: preserve-3d;
-    -webkit-perspective: 2000px;
-    perspective: 2000px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    color: #000;
-  }
-  
-  .cover {
-    top: 0;
-    position: absolute;
-    background-color: #64CCC5;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    -webkit-transform-origin: 0;
-    -ms-transform-origin: 0;
-    transform-origin: 0;
-    -webkit-box-shadow: 1px 1px 12px #000;
-    box-shadow: 1px 1px 12px #000;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-  
-  .book:hover .cover {
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    -webkit-transform: rotatey(-85deg);
-    -ms-transform: rotatey(-85deg);
-    transform: rotatey(-85deg);
-  }
+.card {
+  max-width: 300px;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+}
+
+.card a {
+  text-decoration: none
+}
+
+.content {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 0% 5% 5% 0%;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100px;
+  background-color: #176B87;
+}
+
+.title {
+  color: #111827;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.desc {
+  margin-top: 0.5rem;
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.action {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #2563EB;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.action span {
+  transition: .3s ease;
+}
+
+.action:hover span {
+  transform: translateX(4px);
+}
+
   
   .btn {
     --color: #64CCC5;
     --color2: rgb(10, 25, 30);
-    padding: 0.8em 1.75em;
+    padding: 0.1em 1.60em;
     background-color: transparent;
     border-radius: 6px;
     border: .3px solid var(--color);
@@ -113,3 +118,38 @@
     filter: brightness(.7);
     transform: scale(.98);
    }
+
+/* Estilos para ocultar los detalles de la carrera */
+.carrera-card .carrera-details {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.carrera-card:hover .carrera-details {
+  display: block;
+}
+
+/* Ajusta el estilo de la imagen */
+.carrera-card .carrera-image-container {
+  position: relative;
+}
+
+.carrera-card .carrera-image {
+  width: 100%;
+  height: 100px;
+}
+
+/* Añade espaciado para los detalles de la carrera */
+.carrera-card .carrera-image-container:hover .carrera-details {
+  opacity: 1;
+}
+
+
+

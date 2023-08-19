@@ -14,7 +14,7 @@ import Home from "./components/Home"
 import {UserHome} from "./components/UserHome"
 //import VistaHRegistro from "./Components/VistaHRegistro"
 import VistaHRegistro from "./components/VistaHRegistro"
-import UniversidadComponent from './components/ContRegistro';
+import VistaRegistro2 from './components/VistaRegistro2';
 
 /*import Home from "./components/Home";
 import {UserHome} from "./components/UserHome";
@@ -30,7 +30,7 @@ function App() {
                         <Route path="/" element={<Home/>}/>
                          <Route path="/HomeUSER" element={<UserHome/>}/>
                          <Route path="/Registro" element={<VistaHRegistro/>}/>
-                         <Route path="/Registro2" element={<UniversidadComponent/>}/>
+                         <Route path="/Registro2" element={<VistaRegistro2/>}/>
                     </Routes>
                 </BrowserRouter>
             </header>
