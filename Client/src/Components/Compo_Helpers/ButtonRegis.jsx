@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
+
 function ButtonRegis({ label }) {
+
+function ButtonRegis() {
+
 
   //Componente que contiene un Boton en el cual esta la logica del Registro.
   const [fieldsValid, setFieldsValid] = useState(false);
-
+  
   const handleFormSubmit = (e) => {
+    
   e.preventDefault();
   // Declaro los campos en constantes para su uso.
   const nombre = document.getElementById('Nombre').value;
@@ -48,12 +53,12 @@ function ButtonRegis({ label }) {
 
     //Boton del Formulario del Registro.
     <div className='button-container'>
-      <button
+      <button  type="submit"
         className={`btn btn1 ${fieldsValid ? 'valid' : ''}`}
         style={{ color: '#DAFFFB', fontWeight: 'bold' }}
         onClick={handleFormSubmit}
       >
-        {label}
+        Registrarse
       </button>
     
       <Toaster 
@@ -68,6 +73,7 @@ function ButtonRegis({ label }) {
     </div>
     //Añado un Toaster para mas una UI mas interactiva y facil de entender.
   );
+}
 }
 
 export default ButtonRegis;

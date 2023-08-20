@@ -2,6 +2,7 @@ import express from 'express';
 import { registroController } from '../Controller/RegistroController.js';
 import { loginController } from '../Controller/loginController.js';
 import{obtenerUniversidades} from '../Controller/UniversidadController.js'
+import {obtenerCarrerasPorUniversidad} from '../Controller/CarreraCotroller.js'
 
 const router = express.Router();
 
@@ -16,5 +17,6 @@ router.post('/registro', (req, res) => {
 router.post('/inicioSecion', loginController);
 
 router.get('/universidad', obtenerUniversidades)
+router.get('/carreras/:universidadId', obtenerCarrerasPorUniversidad);
 
 export default router;

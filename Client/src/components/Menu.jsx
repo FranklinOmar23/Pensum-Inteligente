@@ -28,9 +28,9 @@ export function Menu() {
           </button>
           <div className={`collapse navbar-collapse ${showOptions ? 'show' : ''}`} id="navbarResponsive">
             <ul className="navbar-nav ms-auto my-2 my-lg-0">
-              <LI href={"/Inicio de session"} Name={"Inicio de session"} />
+              <LI href={"/Inicio de session"} Name={"Iniciar sesión"} />
               <LI href={"/Registro"} Name={"Registro"} />
-              <LI href={"/About us"} Name={"About us"} />
+              <LI href={"/About us"} Name={"Sobre nosotros"} />
               <LI href={"/HomeUser"} Name={"HomeUser"} />
             </ul>
           </div>
